@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title> Weather app </title>
+        {% load static %}
+        <script src="{% static "facade/helpers.js" %}"></script>
+        <script src="{% static "facade/component.js" %}"></script>
+        <script src="{% static "facade/main.js" %}"></script>
+
+        <script src="{% static "facade/js.cookie.min.js" %}"></script>
+        <script src="{% static "facade/jquery-3.5.1.slim.min.js" %}"></script>
+        <script src="{% static "facade/popper.min.js" %}"></script>
+        <script src="{% static "facade/bootstrap.min.js" %}"></script>
+
+        <link href="{% static "facade/bootstrap.min.css" %}" rel="stylesheet">
+        <link href="{% static "facade/floating-labels.css" %}" rel="stylesheet">
+
+    </head>
+    <body>
+        {% csrf_token %}
+        {{ request.user.id|json_script:"user_id" }}
+        <div id="root">
+            {% if not user.is_authenticated %}
+            <script> anon_dialog(); </script>
+            {% else %}
+            <script> signed_dialog(); </script>
+            {% endif %}
+        </div>
+    </body>
+</html>
