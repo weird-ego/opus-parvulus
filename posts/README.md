@@ -1,7 +1,6 @@
 Local deploy
 ------
-Just checkout `local_deploy` branch and run  
-`docker-compose up`.
+Just run  `docker-compose up`.
 
 
 Heroku
