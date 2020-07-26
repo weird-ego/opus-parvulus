@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Posts</title>
+        {% include "base_static.html" %}
+    </head>
+    <body>
+        {{ pid|json_script:"post-id" }}
+        {{ author|json_script:"author" }}
+        {{ request.user.is_authenticated|json_script:"is-auth" }}
+        <div id="post" class="text-center">
+            <script>
+             const post_id = JSON.parse(byId("post-id").textContent);
+             fetch_post(post_id);
+            </script>
+        </div>
+    </body>
+</html>

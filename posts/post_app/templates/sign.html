@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Posts</title>
+        {% include "base_static.html" %}
+    </head>
+    <body>
+      <div>
+        <form method="POST" action="/sign/" class="form-signin"> {% csrf_token %}
+          <div class="text-center mb-4">
+            <h1 class="h3 mb-3 font-weight-normal">
+              <p1>
+                Post app
+              </p1>
+            </h1>
+          </div>
+          <div class="form-label-group">
+            <input type="text" name="username">
+            <label for="username">username</label>
+          </div>
+          <div class="form-label-group">
+            <input type="password" name="password">
+            <label for="password">password</label>
+          </div>
+          <input type="submit" class="btn btn-lg btn-primary btn-block">
+        </form>
+      </div>
+    </body>
+</html>

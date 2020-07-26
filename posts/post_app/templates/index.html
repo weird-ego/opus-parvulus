@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>Posts</title>
+        {% include "base_static.html" %}
+    </head>
+    <body>
+      {{ request.user.is_authenticated|json_script:"is-auth" }}
+      {{ request.user.username|json_script:"author" }}
+      <div id="posts" class="text-center">
+      </div>
+      <script> fetch_posts(); </script>
+    </body>
+</html>
