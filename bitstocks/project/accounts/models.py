@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+from .config import decimal_places
+
 
 class Account(models.Model):
     """
@@ -8,7 +10,7 @@ class Account(models.Model):
     """
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='accounts')
-    balance = models.FloatField('balance', default=0)
+    balance = models.DecimalField(decimal_places=decimal_places, max_digits=20)
 
 
 class Transaction(models.Model):
@@ -27,3 +29,5 @@ class Transaction(models.Model):
     )
 
     account = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='transactions')
+
+    created_at = models.DateTimeField(auto_now_add=True)
