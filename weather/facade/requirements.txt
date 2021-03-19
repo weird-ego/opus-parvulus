@@ -1,4 +1,4 @@
-Django==3.0.8
+Django==3.1.6
 #git+git://github.com/esnme/ultrajson.git
 ujson==3.0.0
 requests==2.24.0
